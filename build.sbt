@@ -3,7 +3,7 @@ import Dependencies._
 /* Project settings */
 ThisBuild / name := "lamda"
 ThisBuild / scalaVersion := "2.13.15"
-ThisBuild / version := "1.0.0-SNAPSHOT"
+ThisBuild / version := "1.0.1-SNAPSHOT"
 ThisBuild / description := "Minimal functional programming library for Scala"
 ThisBuild / licenses := List(("MIT", url("https://opensource.org/license/mit")))
 ThisBuild / organization := "lamda"

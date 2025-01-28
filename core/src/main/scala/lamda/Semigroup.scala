@@ -23,7 +23,7 @@ trait Semigroup[T] {
 object Semigroup {
   def apply[T](implicit instance: Semigroup[T]): Semigroup[T] = instance
 
-  private[lamda] trait Ops {
+  trait Ops {
     implicit class SemigroupOps[T](a: T)(implicit F: Semigroup[T]) {
       final def combine(b: T): T = F.combine(a, b)
 

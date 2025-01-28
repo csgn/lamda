@@ -19,7 +19,7 @@ trait Monad[F[_]] extends Applicative[F] with FlatMap[F] {
 object Monad {
   def apply[F[_]](implicit instance: Monad[F]): Monad[F] = instance
 
-  private[lamda] trait Ops {
+  trait Ops {
     implicit class MonadOps[F[_], A](fa: F[A])(implicit F: Monad[F]) {
       final def map[B](f: A => B): F[B] = F.map(fa)(f)
     }

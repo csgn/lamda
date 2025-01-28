@@ -18,9 +18,9 @@ trait Semigroupal[F[_]] {
 object Semigroupal {
   def apply[F[_]](implicit instance: Semigroupal[F]): Semigroupal[F] = instance
 
-  private[lamda] trait Ops {
+  trait Ops {
     implicit class SemigroupalOps[F[_], A](fa: F[A])(implicit
-        F: Semigroupal[F],
+      F: Semigroupal[F]
     ) {
       final def product[B](fb: F[B]): F[(A, B)] = F.product(fa, fb)
     }

@@ -1,3 +1,4 @@
 package lamda
 
-package object implicits extends AllInstances with AllOps
+private[lamda] trait AllImplicits extends AllInstances with AllOps
+package object implicits extends AllImplicits

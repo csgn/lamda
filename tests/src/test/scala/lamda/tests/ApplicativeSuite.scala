@@ -12,7 +12,7 @@ class ApplicativeSuite extends munit.FunSuite {
   }
 
   test(
-    "map which in terms of ap and pure should apply function to wrapped value",
+    "map which in terms of ap and pure should apply function to wrapped value"
   ) {
     val o1 = Some(1)
     val f = (a: Int) => a + 1

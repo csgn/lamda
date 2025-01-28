@@ -59,7 +59,7 @@ trait Functor[F[_]] {
 object Functor {
   def apply[F[_]](implicit instance: Functor[F]): Functor[F] = instance
 
-  private[lamda] trait Ops {
+  trait Ops {
     implicit class FunctorOps[F[_], A](fa: F[A])(implicit F: Functor[F]) {
       final def map[B](f: A => B): F[B] = F.map(fa)(f)
 
@@ -71,7 +71,7 @@ object Functor {
     }
 
     implicit class FunctorFunctionOps[F[_], A, B](f: A => B)(implicit
-        F: Functor[F],
+      F: Functor[F]
     ) {
       final def lift: F[A] => F[B] = F.lift(f)
     }

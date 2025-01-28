@@ -44,7 +44,7 @@ trait FlatMap[F[_]] extends Apply[F] {
 object FlatMap {
   def apply[F[_]](implicit instance: FlatMap[F]): FlatMap[F] = instance
 
-  private[lamda] trait Ops {
+  trait Ops {
     implicit class FlatMapOps[F[_], A](fa: F[A])(implicit F: FlatMap[F]) {
       final def flatMap[B](f: A => F[B]): F[B] = F.flatMap(fa)(f)
       final def ap[B](ff: F[A => B]): F[B] = F.ap(fa)(ff)
@@ -52,7 +52,7 @@ object FlatMap {
     }
 
     implicit class FlatMapFlattenOps[F[_], A](ffa: F[F[A]])(implicit
-        F: FlatMap[F],
+      F: FlatMap[F]
     ) {
       final def flatten: F[A] = F.flatten(ffa)
     }

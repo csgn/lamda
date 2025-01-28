@@ -76,7 +76,7 @@ trait Apply[F[_]] extends Functor[F] with Semigroupal[F] {
 object Apply {
   def apply[F[_]](implicit instance: Apply[F]): Apply[F] = instance
 
-  private[lamda] trait Ops {
+  trait Ops {
     implicit class ApplyOps[F[_], A](fa: F[A])(implicit F: Apply[F]) {
       final def ap[B](ff: F[A => B]): F[B] = F.ap(fa)(ff)
 

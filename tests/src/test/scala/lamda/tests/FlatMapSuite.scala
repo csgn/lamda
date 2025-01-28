@@ -29,7 +29,7 @@ class FlatMapSuite extends munit.FunSuite {
   }
 
   test(
-    "ap which in terms of flatMap should apply function wrapped in context to value wrapped in context",
+    "ap which in terms of flatMap should apply function wrapped in context to value wrapped in context"
   ) {
     val o1 = Option(1)
     val f = Option((x: Int) => x + 1)

@@ -43,9 +43,9 @@ trait Applicative[F[_]] extends Apply[F] {
 object Applicative {
   def apply[F[_]](implicit instance: Applicative[F]): Applicative[F] = instance
 
-  private[lamda] trait Ops {
+  trait Ops {
     implicit class ApplicativeOps[F[_], A](fa: F[A])(implicit
-        F: Applicative[F],
+      F: Applicative[F]
     ) {
       final def map[B](f: A => B): F[B] = F.map(fa)(f)
       final def map2[B, Z](fb: F[B])(f: (A, B) => Z): F[Z] = F.map2(fa, fb)(f)
